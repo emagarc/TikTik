@@ -1,4 +1,8 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType, FileOptions } from 'sanity';
+
+interface CustomFileOptions extends FileOptions {
+  hotspot?: boolean
+};
 
 export default defineType({
   name: 'post',
@@ -6,60 +10,59 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'caption',
+      title: 'Caption',
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-    }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
+      name: 'video',
+      title: 'Video',
+      type: 'file',
       options: {
         hotspot: true,
-      },
+      } as CustomFileOptions, // personalized type
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'userId',
+      title: 'UserId',
+      type: 'string',
+    }),
+    defineField({
+      name: 'postedBy',
+      title: 'Posted By',
+      type: 'postedBy',
+    }),
+    defineField({
+      name: 'likes',
+      title: 'Likes',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{ type: 'reference', to: { type: 'user' } }],
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: 'comments',
+      title: 'Comments',
+      type: 'array',
+      of: [{ type: 'comment' }]
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      name: 'topic',
+      title: 'Topic',
+      type: 'string',
     }),
   ],
 
   preview: {
     select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
+      caption: 'caption',
+      video: 'video.asset',
+      userId: 'userId',
+      likes: 'likes',
+      comments: 'comments',
+      topic: 'topic'
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { caption } = selection
+      return { ...selection, subtitle: caption && `Caption: ${caption}` }
     },
   },
-})
+});

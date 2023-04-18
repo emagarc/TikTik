@@ -3,4 +3,5 @@ module.exports = {
     tailwindcss: {},
     autoprefixer: {},
   },
+  config: { path: './' },
 }
