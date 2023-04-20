@@ -3,6 +3,8 @@ import { Video } from '../types';
 import VideoCard from '../components/VideoCard';
 import NoResults from '../components/NoResults';
 
+// Todos mis commits anteriores no se hicieron con mi email de git, por lo que no se reflejan en github.
+
 interface IProps {
   videos: Video[];
 };
