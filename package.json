@@ -13,6 +13,7 @@
     "@sanity/client": "*",
     "@zeit/next-css": "^1.0.1",
     "axios": "*",
+    "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "gapi-script": "*",
     "next": "*",
