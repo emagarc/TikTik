@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const Dotenv = require('dotenv-webpack').default;
+const Dotenv = require('dotenv-webpack');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -7,7 +7,10 @@ const nextConfig = {
     domains: ['yt3.ggpht.com', 'avatars.githubusercontent.com']
   },
   webpack: (config) => {
-    config.plugins.push(new Dotenv());
+    if (!config.plugins) {
+      config.plugins = [];
+    }
+    config.plugins.push(new Dotenv())
     return config;
   }
 }
