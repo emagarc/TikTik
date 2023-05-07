@@ -61,8 +61,9 @@ export default defineType({
       topic: 'topic'
     },
     prepare(selection) {
-      const { caption } = selection
-      return { ...selection, subtitle: caption && `Caption: ${caption}` }
+      const { caption } = selection;
+      const title = caption || 'Untitled';
+      return { ...selection, title }
     },
   },
 });
