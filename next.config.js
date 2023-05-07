@@ -10,7 +10,9 @@ const nextConfig = {
     if (!config.plugins) {
       config.plugins = [];
     }
-    config.plugins.push(new Dotenv())
+    config.plugins.push(new Dotenv({
+      path: './.env.development'
+    }))
     return config;
   }
 }

@@ -18,14 +18,14 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const onVideoPress = () => {
-    if(playing) {
-        videoRef?.current?.pause();
-        setPlaying(false);
+    if (playing) {
+      videoRef?.current?.pause();
+      setPlaying(false);
     } else {
-        videoRef?.current?.play();
-        setPlaying(true);
+      videoRef?.current?.play();
+      setPlaying(true);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">

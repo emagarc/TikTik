@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { GoogleOAuthProvider   } from '@react-oauth/google';
-const clientId = process.env.GOOGLE_OAUTH2_REACT_CLIENT_ID ?? "";
+const clientId = process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN ?? "";
 
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   if (isSrr) return null;
 
   return (
-    <GoogleOAuthProvider clientId="905361671383-041pua2thjmtlkvlp609kgrdlq8avk5f.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId={clientId}>
       <div>
         <Navbar />
         <div className='flex gap-6 md:gap-20'>
