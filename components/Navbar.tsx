@@ -51,14 +51,14 @@ const Navbar = () => {
               </Link>
             )}
             <button
-            type="button"
-            className="px-2"
-            onClick={() => {
+              type="button"
+              className="px-2"
+              onClick={() => {
                 googleLogout();
                 removeUser();
-            }}
+              }}
             >
-                <AiOutlineLogout color='red' fontSize={21} />
+              <AiOutlineLogout color="red" fontSize={21} />
             </button>
           </div>
         ) : (

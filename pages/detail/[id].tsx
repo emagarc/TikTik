@@ -9,9 +9,9 @@ import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import axios from "axios";
 import { BASE_URL } from "../../utils/index";
 import { Video } from "../../types";
-import useAuthStore from '../../store/authStore';
-import LikeButton from '../../components/LikeButton';
-import Comments from '../../components/Comments';
+import useAuthStore from "../../store/authStore";
+import LikeButton from "../../components/LikeButton";
+import Comments from "../../components/Comments";
 
 interface IProps {
   postDetails: Video;
@@ -42,16 +42,15 @@ const Detail = ({ postDetails }: IProps) => {
   }, [post, isVideoMuted]);
 
   const handleLike = async (like: boolean) => {
-    if(userProfile) {
-      const { data } = await axios.put(`${BASE_URL}/api/like`, 
-      {
+    if (userProfile) {
+      const { data } = await axios.put(`${BASE_URL}/api/like`, {
         userId: userProfile._id,
         postId: post._id,
-        like
-      })
+        like,
+      });
       setPost({ ...post, likes: data.likes });
     }
-  }
+  };
 
   if (!post) return null;
 
@@ -130,9 +129,13 @@ const Detail = ({ postDetails }: IProps) => {
           <div className="mt-10 px-10">
             {userProfile && (
               <LikeButton
-              likes={post.likes} 
-              handleLike={() => {handleLike(true)}}
-              handleDislike={() => {handleLike(false)}}
+                likes={post.likes}
+                handleLike={() => {
+                  handleLike(true);
+                }}
+                handleDislike={() => {
+                  handleLike(false);
+                }}
               />
             )}
           </div>
