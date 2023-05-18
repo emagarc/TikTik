@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "<emagarc>/*": ["./*"] // ../.../
+      "<emagarc>/*": ["./*"] // have to change
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
