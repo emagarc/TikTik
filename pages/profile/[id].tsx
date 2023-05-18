@@ -35,11 +35,11 @@ const Profile = ({ data }: IProps) => {
   return (
     <div className="w-full">
       <div className="flex gap-6 md:gap-10 mb-4 bg-white w-full">
-        <div className="w-16 h-16 md:w-32 md:h-32">
+        <div className="pt-2 w-16 h-16 md:w-32 md:h-32">
           <Image
             src={user.image}
-            width={120}
-            height={120}
+            width={115}
+            height={115}
             className="rounded-full"
             alt="user profile"
             layout="responsive"
@@ -76,9 +76,11 @@ const Profile = ({ data }: IProps) => {
               <VideoCard post={post} key={idx} />
             ))
           ) : (
+            <div className="flex items-center justify-center h-full w-full mt-20">
             <NoResults
               text={`No ${showUserVideos ? "" : "Liked"} Videos Yet`}
             />
+            </div>
           )}
         </div>
       </div>

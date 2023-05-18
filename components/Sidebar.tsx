@@ -16,7 +16,7 @@ const Sidebar = () => {
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
   const normalLink =
-    "flex items center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
+    "flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded";
   return (
     <div>
       <div
@@ -30,10 +30,10 @@ const Sidebar = () => {
           <div className="xl:border-b-2 border-gray-200 xl:pb-4">
             <Link href={"/"}>
               <div className={normalLink}>
-                <p className="text-2x1">
+                <p className="text-2xl">
                   <AiFillHome />
                 </p>
-                <span className="text-xl hidden xl:block">For You</span>
+                <span className="text-2xl hidden xl:block">For You</span>
               </div>
             </Link>
           </div>
